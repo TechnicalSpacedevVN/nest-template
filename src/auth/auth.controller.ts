@@ -1,9 +1,17 @@
-import { Controller, Post } from '@nestjs/common'
+import { Controller, Get, Post, Req, Res } from '@nestjs/common'
+import { FastifyReply, FastifyRequest } from 'fastify'
 
-@Controller()
+@Controller('/auth')
 export class Authcontroller {
   @Post()
-  postLogin(): string {
+  postLogin(@Req() request: any, @Res({ passthrough: true }) response: FastifyReply): string {
+    response.cookie('key', 'value')
     return 'auth'
+  }
+
+  @Get()
+  getUser(@Req() request: FastifyRequest) {
+    console.log(request.cookies)
+    return request.cookies
   }
 }
