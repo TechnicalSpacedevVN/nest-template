@@ -1,0 +1,89 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+"""user"""
+type User {
+  id: String!
+  firstName: String
+  lastName: String
+}
+
+type UserPermissionAdmin {
+  """Example field (placeholder)"""
+  exampleField: Int!
+}
+
+type UserAddressAdmin {
+  """Example field (placeholder)"""
+  exampleField: Int!
+}
+
+type UserPaymentAdmin {
+  """Example field (placeholder)"""
+  exampleField: Int!
+}
+
+type UserAdmin {
+  """Example field (placeholder)"""
+  exampleField: Int!
+}
+
+type ReviewAdmin {
+  """Example field (placeholder)"""
+  exampleField: Int!
+}
+
+type ProductAdmin {
+  """Example field (placeholder)"""
+  exampleField: Int!
+}
+
+type PromotionAdmin {
+  """Example field (placeholder)"""
+  exampleField: Int!
+}
+
+"""Date custom scalar type"""
+scalar Date
+
+type Query {
+  user(id: String!): User!
+  users(skip: Int! = 0, limit: Int! = 15): [User!]!
+  count: Float!
+  admin(id: Int!): PromotionAdmin!
+}
+
+type Mutation {
+  addUser(newUserData: NewUserInput!): User!
+  removeUser(id: String!): Boolean!
+  createAdmin(createAdminInput: CreateAdminInput!): PromotionAdmin!
+  updateAdmin(updateAdminInput: UpdateAdminInput!): PromotionAdmin!
+  removeAdmin(id: Int!): PromotionAdmin!
+  createUserAdmin(createUserAdminInput: createUserAdminInput!): UserAdmin!
+}
+
+input NewUserInput {
+  firstName: String!
+  lastName: String!
+}
+
+input CreateAdminInput {
+  """Example field (placeholder)"""
+  exampleField: Int!
+}
+
+input UpdateAdminInput {
+  """Example field (placeholder)"""
+  exampleField: Int
+  id: Int!
+}
+
+input createUserAdminInput {
+  """Example field (placeholder)"""
+  exampleField: Int!
+}
+
+type Subscription {
+  userAdded: User!
+}
